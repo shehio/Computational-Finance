@@ -10,6 +10,15 @@
 % Use the bootstrapping method illustrated in lecture.
 % For each bond also compute the yield-to-maturity, the Macauly duration, and the duration.
 
+% The relationship between current short-term rates, 
+% future expected short-term rates (based on investors? inflation expectations),
+% and long-term rates is explained by the expectation theory of the term structure.
+% The theory states that the shape of the treasury yield curve is
+% determined by investors? expectations of future short-term interest rates.
+% Furthermore, the expectation hypothesis implies that holding a one-year
+% bond and rolling the investment over into a new one-year bond each year
+% for 10 years would result in the same wealth as investing in a 10-year bond. 
+
 clear;
 clc;
 
@@ -22,8 +31,8 @@ interest = 0.02;
 yields = [];
 
 for i = 1 : length(years) - 1
-    fun = @(x) f(x, coupons_per_year, years, interest, prices(i + 1), i, yields);
-    yields = [yields fzero(fun, initial_guess)];
+    func = @(x) f(x, coupons_per_year, years(1 : i + 1), interest, prices(i + 1), yields);
+    yields = [yields fzero(func, initial_guess)];
 end
 
 yields
