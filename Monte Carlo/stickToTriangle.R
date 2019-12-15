@@ -1,4 +1,7 @@
-# Question 3.1
+# Consider taking a stick of length 1 meter and randomly breaking it in 2 places, U1 and U2, where
+# U1 and U2 are iid U(0, 1) random variables.
+# What is the probability that you will be able to make a triangle with the 3 pieces?
+
 IsValidTriangle = function(a, b, c)
 {
   return (a + b > c
@@ -21,12 +24,12 @@ MC_StickToTriangles = function(n)
       j = j + 1
     }
   }
-  return(2 * j/n)
+  return(2 * j / n)
 }
 
 ns = c(10, 100, 1000, 10 * 1000, 100 * 1000, 1000 * 1000, 10 * 1000 * 1000)
 for (i in 1:length(ns))
 {
   n = ns[i]
-  print(paste("n: ", n, "P(triangles) = ", MC_StickToTriangles(n)))
+  print(paste("Simulation with n number of samples: ", n, ", P(valid triangles) = ", MC_StickToTriangles(n)))
 }
