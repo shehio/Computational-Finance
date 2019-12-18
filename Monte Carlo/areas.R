@@ -1,5 +1,3 @@
-## The function g is the function we're interested in. It's a function in x and y.
-## The function f is the hel[er function
 ## N is the number of simulations we use, the higher the more accurate our estimate is.
 monte_carlo_area = function(f_x, n, a, b)
 {
